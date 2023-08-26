@@ -14,19 +14,28 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <p>Популярные криптовалюты</p>
-      <div className="popular-crypto-container">
-        <div>
-          <ul>
+      <h1 className="header-title">Популярные криптовалюты</h1>
+      <div className="popular-crypto-wrapper">
+        <div className="popular-crypto-container">
+          <ul className="top-crypto-list">
             {cryptoCurrency.slice(0, 3).map((item) => {
               return (
-                <li key={item.id}>
-                  <span>{item.name}</span>
-                  <span>{Math.round(item.priceUsd)}$ </span>
+                <li key={item.id} className="top-crypto-item">
+                  <span className="top-crypto-name">{item.name}</span>
+                  <span className="top-crypto-price">
+                    {Math.round(item.priceUsd)}${" "}
+                  </span>
                 </li>
               );
             })}
           </ul>
+          <div className="wallet-crypto-container">
+            <button className="wallet-crypto"></button>
+            <div>
+              <p>Итого:</p>
+              <p>Сумма</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

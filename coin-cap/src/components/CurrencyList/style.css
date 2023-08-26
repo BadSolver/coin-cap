@@ -1,0 +1,16 @@
+ol {
+    padding-left: 0px;
+}
+
+.header-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.currency-list {
+    padding-top: 10px;
+    padding-left: 20px;
+}

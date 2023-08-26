@@ -6,7 +6,7 @@ export const getAllCurrency = createAsyncThunk(
   "currency/getAllCurrency",
   async function () {
     const currency = await ky
-      .get("https://api.coincap.io/v2/assets?limit=3")
+      .get("https://api.coincap.io/v2/assets?limit=4") //?limit=4 лимиты
       .json();
     return currency;
   }

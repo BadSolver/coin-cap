@@ -1,0 +1,53 @@
+.header {
+    margin-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 150px;
+}
+
+.popular-crypto-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+.wallet-crypto-container {
+    display: flex;
+    flex-direction: row;
+}
+.header-title {
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+
+.top-crypto-list {
+    display: flex;
+    gap: 20px;
+}
+
+.top-crypto-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-crypto-name {
+    font-size: 26px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.top-crypto-price {
+    font-size: 20px;
+}
+.wallet-crypto-container {
+    padding-right: 150px;
+}
+
+.wallet-crypto {
+    background: url(../../assets/wallet-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
