@@ -3,7 +3,11 @@ import "./App.css";
 import { AppRouter } from "routes";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <div className="wrapper">
+      <AppRouter />
+    </div>
+  );
 }
 
 export default App;

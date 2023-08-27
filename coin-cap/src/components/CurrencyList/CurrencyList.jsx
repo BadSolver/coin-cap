@@ -3,7 +3,7 @@ import { CurrencyItem } from "components/CurrencyItem";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCurrency } from "store/currencySlice";
-import './style.css'
+import "./style.css";
 
 export const CurrencyList = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const CurrencyList = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="currency-list-wrapper">
       <div className="header-list">
         <p>№</p>
         <p>SYMB</p>
@@ -26,8 +26,10 @@ export const CurrencyList = () => {
         <p>Price</p>
       </div>
       <ol className="currency-list">
-        {cryptoCurrency.map((currency) => {
-          return <CurrencyItem currency={currency} key={currency.id} />;
+        {cryptoCurrency.map((currency, index) => {
+          return (
+            <CurrencyItem currency={currency} key={currency.id} index={index} />
+          );
         })}
       </ol>
     </div>

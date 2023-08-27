@@ -1,12 +1,22 @@
 // @ts-nocheck
 import React, { useEffect } from "react";
-import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCurrency } from "store/currencySlice";
+import "./style.css";
+import walletIcon from "../../assets/wallet-icon.png";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const dispatch = useDispatch();
   const cryptoCurrency = useSelector((state) => state.currency.currency);
+  const walletSum = useSelector((state) => state.wallet.wallet);
+  console.log(walletSum);
+
+  const navigate = useNavigate();
+
+  const handleWallet = () => {
+    navigate("/wallet");
+  };
 
   useEffect(() => {
     dispatch(getAllCurrency());
@@ -14,27 +24,30 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <h1 className="header-title">Популярные криптовалюты</h1>
-      <div className="popular-crypto-wrapper">
-        <div className="popular-crypto-container">
-          <ul className="top-crypto-list">
-            {cryptoCurrency.slice(0, 3).map((item) => {
-              return (
-                <li key={item.id} className="top-crypto-item">
-                  <span className="top-crypto-name">{item.name}</span>
-                  <span className="top-crypto-price">
-                    {Math.round(item.priceUsd)}${" "}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="wallet-crypto-container">
-            <button className="wallet-crypto"></button>
-            <div>
-              <p>Итого:</p>
-              <p>Сумма</p>
-            </div>
+      <div className="left-section">
+        <h1 className="header-title">Популярные криптовалюты</h1>
+        <div className="top-crypto-list">
+          {cryptoCurrency.slice(0, 3).map((item) => {
+            return (
+              <div key={item.id} className="top-crypto-item">
+                <span className="top-crypto-name">{item.name}</span>
+                <span className="top-crypto-price">
+                  {Number(item.priceUsd).toFixed(2)} $
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="right-section">
+        <div className="wallet-info">
+          <button
+            onClick={handleWallet}
+            className="wallet-crypto"
+            style={{ backgroundImage: `url(${walletIcon})` }}
+          ></button>
+          <div className="wallet-summary">
+            <p className="wallet-info-text ">{walletSum.toFixed(2)} $</p>
           </div>
         </div>
       </div>

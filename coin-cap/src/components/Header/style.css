@@ -1,53 +1,69 @@
-.header {
-    margin-top: 20px;
-    padding-bottom: 40px;
-    padding-left: 150px;
-}
-
-.popular-crypto-container {
-    display: flex;
-    justify-content: space-between;
-
-}
-.wallet-crypto-container {
-    display: flex;
-    flex-direction: row;
-}
-.header-title {
-    font-size: 30px;
-    padding-bottom: 20px;
-    font-weight: 600;
-}
-
-.top-crypto-list {
-    display: flex;
-    gap: 20px;
-}
-
-.top-crypto-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.top-crypto-name {
-    font-size: 26px;
-    font-weight: 500;
-    padding-bottom: 10px;
-}
-.top-crypto-price {
-    font-size: 20px;
-}
-.wallet-crypto-container {
-    padding-right: 150px;
-}
-
 .wallet-crypto {
+  display: block;
     background: url(../../assets/wallet-icon.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
     border: none;
-    margin-right: 20px;
     cursor: pointer;
-}
+    filter: invert(100%) grayscale(100%);
+    margin: 0 auto;
+} 
+
+.header {
+    background-color: #24292e;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 140px;
+  }
+  
+  .header-title {
+    font-size: 24px;
+  }
+  
+  .top-crypto-list {
+    display: flex;
+    list-style: none;
+    padding-top: 30px;
+    margin: 0;
+  }
+  
+  .top-crypto-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .top-crypto-name {
+    padding-bottom: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .top-crypto-price {
+    font-size: 18px;
+  }
+  
+  .wallet-info {
+    width: 150px;
+  }
+  
+  .wallet-info-text {
+    margin: 0 ;
+    text-align: center;
+  }
+  
+  .wallet-info p:last-child {
+    font-weight: bold;
+  }
+
+  .wallet-summary p:last-child{
+    padding-top: 10px;
+  }

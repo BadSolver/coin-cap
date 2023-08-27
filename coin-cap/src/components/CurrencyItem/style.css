@@ -1,0 +1,29 @@
+.currency-item {
+    display: grid;
+    grid-template-columns: .3fr .5fr 1fr 1fr 1fr 1fr 1fr .5fr;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+  
+.currency-item span {
+    margin-right: 10px;
+}
+
+.add-crypto {
+    padding: 15px;
+    width: 32px;
+    height: 32px;
+    background: url(../../assets/plus.png);
+    border: none;
+    cursor: pointer;
+}
+
+.currency-name {
+    cursor: pointer;
+
+}
+
+.currency-name:hover {
+    color: goldenrod;
+}

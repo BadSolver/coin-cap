@@ -1,16 +1,21 @@
-ol {
-    padding-left: 0px;
-}
-
-.header-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    border-bottom: 1px solid black;
-}
-
-.currency-list {
-    padding-top: 10px;
-    padding-left: 20px;
-}
+.currency-list-wrapper {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-list {
+    display: grid;
+    grid-template-columns: .3fr .5fr 1fr 1fr 1fr 1fr 1fr .5fr;
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .currency-list {
+    list-style: none;
+    padding: 0;
+  }
+  
