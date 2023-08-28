@@ -10,7 +10,6 @@ export const Header = () => {
   const dispatch = useDispatch();
   const cryptoCurrency = useSelector((state) => state.currency.currency);
   const walletSum = useSelector((state) => state.wallet.wallet);
-  console.log(walletSum);
 
   const navigate = useNavigate();
 
@@ -47,7 +46,16 @@ export const Header = () => {
             style={{ backgroundImage: `url(${walletIcon})` }}
           ></button>
           <div className="wallet-summary">
-            <p className="wallet-info-text ">{walletSum.toFixed(2)} $</p>
+            <p className="wallet-info-text ">
+              {walletSum.length === 0
+                ? "0.00"
+                : +walletSum
+                    .reduce((acc, item) => {
+                      return acc + +item.priceUsd;
+                    }, 0)
+                    .toFixed(2)}
+              $
+            </p>
           </div>
         </div>
       </div>

@@ -19,18 +19,14 @@ const currencySlice = createSlice({
     errors: null,
     loading: false,
   },
-  reducers: {
-    addCurrency(state, { payload }) {
-      state.currency.push(payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAllCurrency.fulfilled, (state, { payload }) => {
       state.currency = payload.data;
       state.errors = null;
       state.loading = false;
     });
-    builder.addCase(getAllCurrency.pending, (state, { payload }) => {
+    builder.addCase(getAllCurrency.pending, (state) => {
       state.loading = true;
       state.errors = null;
     });
@@ -43,4 +39,4 @@ const currencySlice = createSlice({
 
 export default currencySlice.reducer;
 
-export const {} = currencySlice.actions;
+// export const {} = currencySlice.actions;

@@ -1,14 +1,21 @@
 // @ts-nocheck
 import { CurrencyItem } from "components/CurrencyItem";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCurrency } from "store/currencySlice";
 import "./style.css";
+import { ModalWindow } from "components/ModalWindow";
 
 export const CurrencyList = () => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
   const cryptoCurrency = useSelector((state) => state.currency.currency);
-  console.log(cryptoCurrency);
+
+  const handleModal = (currency) => {
+    setSelectedCurrency(currency);
+    setIsOpen(true);
+  };
 
   useEffect(() => {
     dispatch(getAllCurrency());
@@ -28,10 +35,21 @@ export const CurrencyList = () => {
       <ol className="currency-list">
         {cryptoCurrency.map((currency, index) => {
           return (
-            <CurrencyItem currency={currency} key={currency.id} index={index} />
+            <CurrencyItem
+              currency={currency}
+              key={currency.id}
+              index={index}
+              handleModal={handleModal}
+            />
           );
         })}
       </ol>
+      {isOpen ? (
+        <ModalWindow
+          handleModal={() => setIsOpen(false)}
+          currency={selectedCurrency}
+        />
+      ) : null}
     </div>
   );
 };
