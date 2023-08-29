@@ -1,19 +1,21 @@
 // @ts-nocheck
 import React from "react";
 import "./style.css";
-// import { useDispatch } from "react-redux";
-// import { addToWallet } from "store/walletSlice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteOneCurrency } from "store/walletSlice";
 
-export const CurrencyItem = ({ currency, index, handleModal }) => {
-  // const dispatch = useDispatch();
+export const CurrencyItem = ({
+  currency,
+  index,
+  handleModal,
+  showDeleteButton,
+}) => {
   const navigate = useNavigate();
-  // console.log(currency);
-
-  // const handleSum = (cost) => {
-  //   setIsOpen(true);
-  //   dispatch(addToWallet(cost));
-  // };
+  const dispatch = useDispatch();
+  const handleDeleteOneCurrency = (id) => {
+    dispatch(deleteOneCurrency(id));
+  };
 
   return (
     <li className="currency-item" key={currency.id}>
@@ -27,10 +29,18 @@ export const CurrencyItem = ({ currency, index, handleModal }) => {
       <span>{Number(currency.marketCapUsd).toFixed(2)}</span>
       <span>{Number(currency.priceUsd).toFixed(2)} $</span>
       <span>
-        <button
-          className="add-crypto"
-          onClick={() => handleModal(currency)}
-        ></button>
+        <div className="btn-block">
+          <button
+            className="add-crypto"
+            onClick={() => handleModal(currency)}
+          ></button>
+          {showDeleteButton && (
+            <button
+              className="delete-button"
+              onClick={() => handleDeleteOneCurrency(currency.id)}
+            ></button>
+          )}
+        </div>
       </span>
     </li>
   );
