@@ -39,3 +39,10 @@
 .currency-name:hover {
     color: goldenrod;
 }
+.positive {
+    color: green;
+  }
+  
+  .negative {
+    color: red;
+  }
