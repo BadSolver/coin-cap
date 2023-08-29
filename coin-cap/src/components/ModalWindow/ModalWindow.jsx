@@ -18,12 +18,16 @@ export const ModalWindow = ({ handleModal, currency }) => {
     dispatch(deleteAllCurrency());
   };
 
-  const handleAddToWallet = (e) => {
+  const handleAddToWallet = () => {
     const data = {
       id: currency.id,
       priceUsd: +value * currency.priceUsd,
       count: value,
       name: currency.name,
+      vwap24Hr: currency.vwap24Hr,
+      marketCapUsd: currency.marketCapUsd,
+      symbol: currency.symbol,
+      changePercent24Hr: currency.changePercent24Hr,
     };
     dispatch(addToWallet(data));
     setValue("");
