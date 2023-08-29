@@ -6,7 +6,7 @@ import { getAllCurrency } from "store/currencySlice";
 import "./style.css";
 import { ModalWindow } from "components/ModalWindow";
 
-export const CurrencyList = ({data, showDeleteButton}) => {
+export const CurrencyList = ({ data, showDeleteButton }) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
