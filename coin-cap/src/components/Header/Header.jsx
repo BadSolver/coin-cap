@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export const Header = () => {
   const dispatch = useDispatch();
   const cryptoCurrency = useSelector((state) => state.currency.currency);
-  const walletSum = useSelector((state) => state.wallet.wallet);
+  const wallet = useSelector((state) => state.wallet.wallet);
 
   const navigate = useNavigate();
 
@@ -47,9 +47,9 @@ export const Header = () => {
           ></button>
           <div className="wallet-summary">
             <p className="wallet-info-text ">
-              {walletSum.length === 0
+              {wallet.length === 0
                 ? "0.00"
-                : +walletSum
+                : +wallet
                     .reduce((acc, item) => {
                       return acc + +item.priceUsd;
                     }, 0)
