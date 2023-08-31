@@ -1,15 +1,16 @@
 // @ts-nocheck
-import { CurrencyItem } from "components/CurrencyItem";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllCurrency } from "store/currencySlice";
+import { CurrencyItem, ModalWindow } from "components";
 import "./style.css";
-import { ModalWindow } from "components/ModalWindow";
 
 export const CurrencyList = ({ data, showDeleteButton }) => {
-  const dispatch = useDispatch();
+  const [limit, setLimit] = useState(14);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
+
+  const dispatch = useDispatch();
 
   const handleModal = (currency) => {
     setSelectedCurrency(currency);
@@ -17,8 +18,24 @@ export const CurrencyList = ({ data, showDeleteButton }) => {
   };
 
   useEffect(() => {
-    dispatch(getAllCurrency());
-  }, [dispatch]);
+    dispatch(getAllCurrency(limit));
+  }, [limit]);
+
+  const handleScroll = (e) => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      setLimit((prevLimit) => prevLimit + 10);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="currency-list-wrapper">
@@ -44,6 +61,13 @@ export const CurrencyList = ({ data, showDeleteButton }) => {
           );
         })}
       </ol>
+      {/* <button className="show-more-btn"
+        onClick={() => {
+          setLimit((prevLimit) => prevLimit + 5);
+        }}
+      >
+        Show more
+      </button> */}
       {isOpen ? (
         <ModalWindow
           handleModal={() => setIsOpen(false)}
