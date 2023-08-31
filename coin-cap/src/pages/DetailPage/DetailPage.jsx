@@ -1,5 +1,4 @@
 // @ts-nocheck
-import React from "react";
 import { useSelector } from "react-redux";
 import "./style.css";
 
@@ -35,7 +34,6 @@ export const DetailPage = () => {
             <div className="info-item">
               <span className="info-label">Рыночная стоимость:</span>
               <span className="info-value">
-                {" "}
                 {detailCurrency.marketCapUsd} $
               </span>
             </div>

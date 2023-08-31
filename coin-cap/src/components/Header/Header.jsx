@@ -1,10 +1,10 @@
 // @ts-nocheck
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCurrency } from "store/currencySlice";
-import "./style.css";
 import walletIcon from "../../assets/wallet-icon.png";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 export const Header = () => {
   const dispatch = useDispatch();

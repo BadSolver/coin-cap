@@ -1,9 +1,8 @@
 // @ts-nocheck
-import React, { useState } from "react";
-import "./style.css";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { addToWallet, deleteAllCurrency } from "store/walletSlice";
-import { useSelector } from "react-redux";
+import "./style.css";
 
 export const ModalWindow = ({ handleModal, currency }) => {
   const dispatch = useDispatch();

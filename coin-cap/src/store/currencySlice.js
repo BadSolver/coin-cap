@@ -4,9 +4,9 @@ import ky from "ky";
 
 export const getAllCurrency = createAsyncThunk(
   "currency/getAllCurrency",
-  async function () {
+  async function (limit) {
     const currency = await ky
-      .get("https://api.coincap.io/v2/assets") //?limit=4 лимиты
+      .get(`https://api.coincap.io/v2/assets?limit=${limit}`) //?limit= лимиты
       .json();
     return currency;
   }
