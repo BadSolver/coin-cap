@@ -19,3 +19,21 @@
     padding: 0;
   }
   
+  .show-more-btn {
+    display: block;
+    margin: 50px auto;
+    background-color: #24292E;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 65px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .show-more-btn:hover {
+    background-color: white;
+    color: #24292E;
+    transition: all ease-in-out .7s;
+  }
