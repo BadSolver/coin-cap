@@ -79,7 +79,7 @@ export const DetailPage = () => {
                     : "info-value-negative"
                 }`}
               >
-                {changePercent24Hr} %
+                {formatNumber(changePercent24Hr, 4)} %
               </span>
             </div>
             <div className="info-item">
