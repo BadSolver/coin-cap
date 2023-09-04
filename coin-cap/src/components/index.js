@@ -5,6 +5,7 @@ import { Loader } from "./Loader";
 import { MainTemplate } from "./MainTemplate";
 import { ModalWindow } from "./ModalWindow";
 import { Wallet } from "./Wallet";
+import { DetailInfo } from "./DetailInfo/DetailInfo";
 
 export {
   Header,
@@ -13,5 +14,6 @@ export {
   MainTemplate,
   ModalWindow,
   Loader,
-  Wallet
+  Wallet,
+  DetailInfo,
 };
