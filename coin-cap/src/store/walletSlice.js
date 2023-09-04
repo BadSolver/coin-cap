@@ -16,7 +16,6 @@ const walletSlice = createSlice({
         findItem.priceUsd += payload.priceUsd;
         findItem.count = +payload.count + +findItem.count;
       }
-      console.log(findItem);
     },
     deleteAllCurrency(state) {
       state.wallet = [];

@@ -5,6 +5,7 @@ import { getAllCurrency } from "store/currencySlice";
 import walletIcon from "../../assets/wallet-icon.png";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { formatNumber } from "./../../helpers/formatNumber";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export const Header = () => {
               <div key={item.id} className="top-crypto-item">
                 <span className="top-crypto-name">{item.name}</span>
                 <span className="top-crypto-price">
-                  {Number(item.priceUsd).toFixed(2)} $
+                  {formatNumber(item.priceUsd, 2)} $
                 </span>
               </div>
             );

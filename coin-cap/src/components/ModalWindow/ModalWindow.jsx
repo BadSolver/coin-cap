@@ -3,30 +3,56 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWallet, deleteAllCurrency } from "store/walletSlice";
 import "./style.css";
+import { formatNumber } from "./../../helpers/formatNumber";
 
 export const ModalWindow = ({ handleModal, currency }) => {
+  const {
+    id,
+    rank,
+    priceUsd,
+    supply,
+    maxSupply,
+    name,
+    volumeUsd24Hr,
+    vwap24Hr,
+    marketCapUsd,
+    symbol,
+    changePercent24Hr,
+    explorer,
+  } = currency;
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
   const wallet = useSelector((state) => state.wallet.wallet);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleInputChange = (e) => {
-    setValue(e.target.value);
+    if (!isNaN(+e.target.value) && +e.target.value > 0) {
+      setIsDisabled(false);
+      setValue(+e.target.value);
+    } else {
+      setIsDisabled(true);
+    }
   };
 
   const handleDeleteAllCurrency = () => {
     dispatch(deleteAllCurrency());
   };
 
-  const handleAddToWallet = () => {
+  const handleAddToWallet = (e) => {
     const data = {
-      id: currency.id,
-      priceUsd: +value * currency.priceUsd,
+      id,
+      rank,
+      priceUsd: +value * priceUsd,
       count: value,
-      name: currency.name,
-      vwap24Hr: currency.vwap24Hr,
-      marketCapUsd: currency.marketCapUsd,
-      symbol: currency.symbol,
-      changePercent24Hr: currency.changePercent24Hr,
+      supply,
+      maxSupply,
+      name,
+      volumeUsd24Hr,
+      vwap24Hr,
+      marketCapUsd,
+      symbol,
+      changePercent24Hr,
+      explorer,
     };
     dispatch(addToWallet(data));
     setValue("");
@@ -61,12 +87,16 @@ export const ModalWindow = ({ handleModal, currency }) => {
               <li key={index}>
                 <span>{item.name}</span>
                 <span>{item.count}</span>
-                <span>{item.priceUsd.toFixed(2)} $</span>
+                <span>{formatNumber(item.priceUsd, 2)} $</span>
               </li>
             ))}
           </ul>
           <div className="modal-actions">
-            <button className="modal-add-button" onClick={handleAddToWallet}>
+            <button
+              className="modal-add-button"
+              onClick={handleAddToWallet}
+              disabled={isDisabled}
+            >
               Add to Wallet
             </button>
             <button

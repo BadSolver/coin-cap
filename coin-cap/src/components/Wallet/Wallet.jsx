@@ -2,6 +2,7 @@
 import { CurrencyList } from "components/CurrencyList";
 import { useSelector } from "react-redux";
 import "./style.css";
+import { formatNumber } from "helpers";
 
 export const Wallet = () => {
   const wallet = useSelector((state) => state.wallet.wallet);
@@ -13,7 +14,7 @@ export const Wallet = () => {
         <>
           <CurrencyList data={wallet} showDeleteButton={true} />
           <h2>Общая ценность кошелька:</h2>
-          <span className="total-sum">{walletSum} $</span>
+          <span className="total-sum">{formatNumber(walletSum, 4)} $</span>
         </>
       )}
     </>

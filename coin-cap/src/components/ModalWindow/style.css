@@ -111,4 +111,9 @@
     font-size: 16px;
 }
   
-  
+button:disabled {
+  background-color: #ccc;
+  cursor: default;
+  color: #999;
+  opacity: 0.6;
+}

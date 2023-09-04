@@ -21,7 +21,7 @@ export const CurrencyList = ({ data, showDeleteButton }) => {
     dispatch(getAllCurrency(limit));
   }, [limit]);
 
-  const handleScroll = (e) => {
+  const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight

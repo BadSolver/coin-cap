@@ -41,3 +41,10 @@
     text-decoration: none;
   }
   
+  .info-value-positive {
+    color: green;
+  }
+  
+  .info-value-negative {
+    color: red;
+  }

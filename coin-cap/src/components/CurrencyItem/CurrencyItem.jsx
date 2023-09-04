@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteOneCurrency } from "store/walletSlice";
 import { addDetailCurrency } from "store/detailSlice";
+import { formatNumber } from "helpers";
 
 export const CurrencyItem = ({
   currency,
@@ -35,12 +36,12 @@ export const CurrencyItem = ({
       >
         {currency.name}
       </span>
-      <span>{Number(currency.vwap24Hr).toFixed(2)}</span>
+      <span>{formatNumber(currency.vwap24Hr, 2)}</span>
       <span className={`${changePercent > 0 ? "positive" : "negative"}`}>
-        {Number(currency.changePercent24Hr).toFixed(2)} %
+        {formatNumber(currency.changePercent24Hr, 2)} %
       </span>
-      <span>{Number(currency.marketCapUsd).toFixed(2)}</span>
-      <span>{Number(currency.priceUsd).toFixed(2)} $</span>
+      <span>{formatNumber(currency.marketCapUsd, 2)}</span>
+      <span>{formatNumber(currency.priceUsd, 2)} $</span>
       <span>
         <div className="btn-block">
           <button

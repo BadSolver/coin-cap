@@ -7,7 +7,6 @@ const detaiSlice = createSlice({
   },
   reducers: {
     addDetailCurrency(state, { payload }) {
-      console.log(payload);
       state.detail = payload;
     },
   },
